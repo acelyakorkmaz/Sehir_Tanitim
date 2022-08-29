@@ -1,0 +1,130 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="zongi_tanitim.main" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Zonguldak Tanıtım</title>
+    <link href="/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.0.3.js"></script>
+    <script type="text/javascript">
+        $("document").ready(function () {
+            $("header nav ul li.introduction-wrap").mouseover(function () {
+                $("header nav ul li.introduction-wrap .introduction").css("display","block")
+            })
+            $("header nav ul li.introduction-wrap").mouseleave(function () {
+                $("header nav ul li.introduction-wrap .introduction").css("display", "none")
+            })
+        })
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <div id="wrapper">
+            <header>
+
+                <div class="logo">
+                    <img src="images/logo.jpg" style="height:45px;"/>
+                   67
+                </div>
+
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="WebForm1.aspx">Anasayfa</a> 
+                        </li>
+                        <li class="introduction-wrap">
+                            Tanıtım
+                            <div class="introduction">
+                                <ul>
+                                    <a href="zonguldakitaniyalim.aspx">ZONGULDAK'I TANIYALIM</a>
+                                    <a href="alisveris.aspx">ALIŞVERİŞ</a>
+                                    
+                                </ul>
+                            </div>
+                        </li>
+                        
+                        <li>
+                             <a href="Galeri.aspx">GALERİ</a>
+                        </li>
+                    </ul>
+
+
+                </nav>
+               <%-- <div class="search-wrap">
+                    <asp:TextBox ID="txtArama" CssClass="txtArama" placeholder="arama" runat="server"> </asp:TextBox>
+                    <asp:Button ID="btnArama" CssClass="btnArama" runat="server" Text="Ara" />
+
+
+
+                </div>--%>
+            </header>
+            <div class="banner" >
+                
+                <img src="images/zongifoto1.jpg"  style="height: 360px; width:960px;"/ >
+                
+            </div>
+            <div class="left-side">
+                <div class="kayit"> 
+                    <asp:Panel ID="pnlGiris" runat="server">
+                    <div class="ust">
+                        KULLANICI GİRİŞİ
+                    </div>
+                    <div class="alt">
+                        <div class="kullanici">
+                        <span>Kullanıcı adı</span>
+                        <asp:TextBox ID="txtKullaniciAdi" CssClass="textbox" runat="server"></asp:TextBox>
+                         </div>
+                        <div class="sifre">
+                         <span>Şifre</span>
+                        <asp:TextBox ID="txtSifre" CssClass="textbox" runat="server" TextMode="Password"></asp:TextBox>
+                        </div>
+                            <asp:Button ID="btnKayit" CssClass="btnKayit" runat="server" Text="KAYDOL" OnClick="btnKayit_Click" />
+                        <asp:Button ID="btnGiris" CssClass="btnGiris" Text="Giriş" runat="server" OnClick="btnGiris_Click"/>
+                        <asp:Label ID="lblSonuc"  runat="server" ></asp:Label>
+                    </div>
+                        </asp:Panel>
+                    <asp:Panel ID="pnlKullanici" runat="server">
+                        Hoşgeldiniz,  <asp:Label ID="lblKullaniciAdi" Text="" runat="server"></asp:Label>
+                        <br />
+                        <a href="Sepet.aspx"  >Sepetim</a>
+                        <asp:Button ID="btnCikis" Text="Çıkış"  runat="server" OnClick="btnCikis_Click" CssClass="KullaniciCikisi"/>
+                    </asp:Panel>
+                </div>
+                
+                <div class="duyurular">
+                    <div class="ust">
+                        DUYURULAR
+                    </div>
+                <div class="alt">
+                    <asp:ListView ID="lstDuyuru" runat="server">
+                        <ItemTemplate>
+                            <div class="duyuru-wrap">
+                    <asp:Label ID="Label1" runat="server" Text='<%#Eval("Baslik") %>'></asp:Label><br />
+                    <asp:Label ID="Label2" runat="server" Text='<%#Eval("Duyuru") %>'></asp:Label><br />
+                    <asp:Label ID="Label3" runat="server" Text='<%#Eval("Tarih") %>'></asp:Label>
+
+                    </div>
+                        </ItemTemplate>
+                    </asp:ListView>
+                    
+                </div>
+                </div>
+
+            </div>
+            <div class="right-side">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            </div>
+            <footer>
+                2020/November
+            </footer>
+
+        </div>
+        
+        
+    </form>
+</body>
+</html>

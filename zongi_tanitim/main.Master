@@ -53,13 +53,13 @@
 
 
                 </nav>
-                <div class="search-wrap">
+              <%--  <div class="search-wrap">
                     <asp:TextBox ID="txtArama" CssClass="txtArama" placeholder="arama" runat="server"> </asp:TextBox>
                     <asp:Button ID="btnArama" CssClass="btnArama" runat="server" Text="Ara" />
 
 
 
-                </div>
+                </div>--%>
             </header>
             <div class="banner" >
                 
